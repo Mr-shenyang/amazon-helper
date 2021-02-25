@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.oscoder.amazon.helper.user.service.data.mapper.UserMapper">
+    <resultMap id="result" type="com.oscoder.amazon.helper.user.service.data.po.UserPO">
+        <result column="id" property="id"/>
+        <result column="type" property="type"/>
+        <result column="name" property="name"/>
+        <result column="code" property="code"/>
+        <result column="email" property="email"/>
+        <result column="tel" property="tel"/>
+        <result column="password" property="password" javaType="encryptType"/>
+        <result column="status" property="status"/>
+    </resultMap>
+
+    <sql id="sql_select">
+        SELECT
+        id,
+        type,
+        name,
+        code,
+        email,
+        tel,
+        password,
+        status
+        FROM
+        t_user as t
+    </sql>
+
+
+    <sql id="sql_select_without_pwd">
+        SELECT
+        id,
+        type,
+        name,
+        code,
+        email,
+        tel,
+        status
+        FROM
+        t_user as t
+    </sql>
+
+    <insert id="insert" parameterType="map" useGeneratedKeys="true" keyProperty="id">
+        insert  into t_user(`type`,`name`,`code`,`email`,`tel`,`password`)
+        values (
+        #{user.type},
+        #{user.name},
+        #{user.code},
+        #{user.email},
+        #{user.tel},
+        #{user.password,javaType=encryptType}
+        )
+    </insert>
+
+    <update id="update" parameterType="map">
+        update t_user
+        set `gmt_modified` = now()
+        <if test="user.type != null">
+            , `type` = #{user.type}
+        </if>
+        <if test="user.name != null">
+            , `name` = #{user.name}
+        </if>
+        <if test="user.code != null">
+            , `code` = #{user.code}
+        </if>
+        <if test="user.email != null">
+            , `email` = #{user.email}
+        </if>
+        <if test="user.tel != null">
+            , `tel` = #{user.tel}
+        </if>
+        <if test="user.password != null">
+            , `password` = #{user.password}
+        </if>
+        where `id` = #{user.id}
+    </update>
+
+    <select id="getFullUserById" resultMap="result">
+        <include refid="sql_select"/>
+        where t.id = #{id} AND t.status = 1
+    </select>
+
+    <select id="getUserById" resultMap="result">
+        <include refid="sql_select_without_pwd"/>
+        where t.id = #{id} AND t.status = 1
+    </select>
+
+    <select id="getUserPwd" resultMap="result">
+        <include refid="sql_select"/>
+        where t.status = 1
+        <choose>
+            <when test="loginType == 1">
+                AND  t.tel = #{loginName}
+            </when>
+            <when test="loginType == 2">
+                AND  t.email = #{loginName}
+            </when>
+            <otherwise>AND t.id = -1</otherwise>
+        </choose>
+    </select>
+
+
+    <update id="remove" parameterType="map">
+        update t_user
+        set `status` = 0
+        where `id` = #{id} AND t.status = 1
+    </update>
+</mapper>

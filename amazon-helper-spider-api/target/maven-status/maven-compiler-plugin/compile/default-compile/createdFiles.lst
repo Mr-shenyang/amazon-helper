@@ -1,0 +1,5 @@
+com/oscoder/amazon/helper/spider/api/dto/ProductDTO.class
+com/oscoder/amazon/helper/spider/api/service/SpiderService.class
+com/oscoder/amazon/helper/spider/api/dto/TaskInfoDTO.class
+com/oscoder/amazon/helper/spider/api/service/ProductService.class
+com/oscoder/amazon/helper/spider/api/dto/PageDTO.class

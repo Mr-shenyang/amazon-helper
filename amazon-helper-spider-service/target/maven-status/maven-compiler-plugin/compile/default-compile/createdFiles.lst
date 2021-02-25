@@ -1,0 +1,4 @@
+com/oscoder/amazon/helper/spider/service/spider/processor/AmazonProcessor.class
+com/oscoder/amazon/helper/spider/service/spider/factory/ZombieProductSpider.class
+com/oscoder/amazon/helper/spider/service/impl/SpiderServiceImpl.class
+com/oscoder/amazon/helper/spider/service/impl/ProductServiceImpl.class

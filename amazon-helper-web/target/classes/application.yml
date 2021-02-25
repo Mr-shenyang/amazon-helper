@@ -1,0 +1,36 @@
+spring:
+  profiles:
+    active: dev
+    include: shiro
+  #数据源
+  datasource:
+    url: jdbc:mysql://localhost:3306/oscoder?useUnicode=true&characterEncoding=utf-8&useSSL=false&serverTimezone=GMT
+    username: root
+    password: 123456abcd
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+
+#mybatis配置
+mybatis:
+  typeAliasesPackage: com.oscoder.amazon.helper.user.service.data.po,com.oscoder.amazon.helper.user.service.security.encrypt
+  mapperLocations: classpath*:mapper/*.xml
+  type-handlers-package: com.oscoder.amazon.helper.user.service.security.encrypt
+
+shiro:
+  loginUrl: /tlogin         # 用户未登录时跳转的请求路径
+  unauthorizedUrl: /anon/403  # 用户没有访问权限时跳转的请求路径
+  userNativeSessionManager: true
+  sessionManager:
+    cookie:
+      name: BIUSID
+thymeleaf:
+  #模板的模式，支持 HTML, XML TEXT JAVASCRIPT
+  mode: HTML5
+  #编码 可不用配置
+  encoding: UTF-8
+  #内容类别,可不用配置
+  content-type: text/html
+  #开发配置为false,避免修改模板还要重启服务器
+  cache: false
+  #配置模板路径，默认是templates，可以不用配置
+  prefix: classpath:/templates

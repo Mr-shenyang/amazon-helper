@@ -1,0 +1,7 @@
+/Users/pinggu/workspace/java/amazon-helper/amazon-helper-user-api/src/main/java/com/oscoder/amazon/helper/user/api/dto/UserDTO.java
+/Users/pinggu/workspace/java/amazon-helper/amazon-helper-user-api/src/main/java/com/oscoder/amazon/helper/user/api/enums/UserType.java
+/Users/pinggu/workspace/java/amazon-helper/amazon-helper-user-api/src/main/java/com/oscoder/amazon/helper/user/api/dto/UserPwdDTO.java
+/Users/pinggu/workspace/java/amazon-helper/amazon-helper-user-api/src/main/java/com/oscoder/amazon/helper/user/api/dto/UserInitDTO.java
+/Users/pinggu/workspace/java/amazon-helper/amazon-helper-user-api/src/main/java/com/oscoder/amazon/helper/user/api/service/UserService.java
+/Users/pinggu/workspace/java/amazon-helper/amazon-helper-user-api/src/main/java/com/oscoder/amazon/helper/user/api/enums/LoginType.java
+/Users/pinggu/workspace/java/amazon-helper/amazon-helper-user-api/src/main/java/com/oscoder/amazon/helper/user/api/service/PermissionService.java
