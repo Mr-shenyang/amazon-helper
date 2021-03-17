@@ -14,6 +14,14 @@
         <!--业务-->
         <dependency>
             <groupId>com.oscoder</groupId>
+            <artifactId>amazon-helper-notify-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.oscoder</groupId>
+            <artifactId>amazon-helper-notify-service</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.oscoder</groupId>
             <artifactId>amazon-helper-user-api</artifactId>
         </dependency>
         <dependency>
@@ -39,12 +47,6 @@
             <artifactId>spring-boot-test</artifactId>
         </dependency>
 
-        <!--采用shiro实现登录验证-->
-        <dependency>
-            <groupId>org.apache.shiro</groupId>
-            <artifactId>shiro-spring-boot-web-starter</artifactId>
-            <version>1.7.1</version>
-        </dependency>
         <dependency>
             <groupId>com.auth0</groupId>
             <artifactId>java-jwt</artifactId>

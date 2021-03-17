@@ -6,7 +6,6 @@
         <result column="id" property="id"/>
         <result column="type" property="type"/>
         <result column="name" property="name"/>
-        <result column="code" property="code"/>
         <result column="email" property="email"/>
         <result column="tel" property="tel"/>
         <result column="password" property="password" javaType="encryptType"/>
@@ -18,7 +17,6 @@
         id,
         type,
         name,
-        code,
         email,
         tel,
         password,
@@ -33,7 +31,6 @@
         id,
         type,
         name,
-        code,
         email,
         tel,
         status
@@ -42,11 +39,10 @@
     </sql>
 
     <insert id="insert" parameterType="map" useGeneratedKeys="true" keyProperty="id">
-        insert  into t_user(`type`,`name`,`code`,`email`,`tel`,`password`)
+        insert  into t_user(`type`,`name`,`email`,`tel`,`password`)
         values (
         #{user.type},
         #{user.name},
-        #{user.code},
         #{user.email},
         #{user.tel},
         #{user.password,javaType=encryptType}
@@ -61,9 +57,6 @@
         </if>
         <if test="user.name != null">
             , `name` = #{user.name}
-        </if>
-        <if test="user.code != null">
-            , `code` = #{user.code}
         </if>
         <if test="user.email != null">
             , `email` = #{user.email}
@@ -87,7 +80,7 @@
         where t.id = #{id} AND t.status = 1
     </select>
 
-    <select id="getUserPwd" resultMap="result">
+    <select id="getUserByLogin" resultMap="result">
         <include refid="sql_select"/>
         where t.status = 1
         <choose>

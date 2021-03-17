@@ -6,7 +6,7 @@ import javax.annotation.Generated;
 
 @Generated(
     value = "org.mapstruct.ap.MappingProcessor",
-    date = "2021-02-26T22:37:45+0800",
+    date = "2021-03-17T02:29:22+0800",
     comments = "version: 1.2.0.Final, compiler: javac, environment: Java 1.8.0_144 (Oracle Corporation)"
 )
 public class UserDtoVoTransformImpl implements UserDtoVoTransform {
@@ -22,7 +22,6 @@ public class UserDtoVoTransformImpl implements UserDtoVoTransform {
         userVO.setId( user.getId() );
         userVO.setType( user.getType() );
         userVO.setName( user.getName() );
-        userVO.setCode( user.getCode() );
         userVO.setEmail( user.getEmail() );
         userVO.setTel( user.getTel() );
 

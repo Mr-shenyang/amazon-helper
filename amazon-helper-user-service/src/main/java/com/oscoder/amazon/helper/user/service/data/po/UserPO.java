@@ -18,7 +18,6 @@ public class UserPO {
 	private Integer type;
 	
 	private String name;
-	private String code;
 	private String email;
 	private String tel;
 	private String password;

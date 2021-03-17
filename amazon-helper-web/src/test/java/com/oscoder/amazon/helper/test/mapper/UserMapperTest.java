@@ -19,7 +19,6 @@ public class UserMapperTest extends BaseTest {
         user.setName("张三");
         user.setTel("17633221231");
         user.setPassword("123456abcd");
-        user.setCode("shenyang");
         user.setStatus(1);
         int insert = userMapper.insert(user);
         Assert.assertTrue(insert > 0);

@@ -1,6 +1,7 @@
 package com.oscoder.amazon.helper.user.service.transform;
 
 import com.oscoder.amazon.helper.user.api.dto.UserDTO;
+import com.oscoder.amazon.helper.user.api.dto.UserInitDTO;
 import com.oscoder.amazon.helper.user.api.dto.UserPwdDTO;
 import com.oscoder.amazon.helper.user.service.data.po.UserPO;
 import org.mapstruct.Mapper;
@@ -21,4 +22,7 @@ public interface UserPoDtoTransform {
 	
 	@Mappings({})
 	UserPwdDTO po2PwdDto(UserPO user);
+
+	@Mappings({})
+	UserPO initDto2Po(UserInitDTO initDTO);
 }

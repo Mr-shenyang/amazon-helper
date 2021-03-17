@@ -9,6 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
     <packaging>jar</packaging>
+    <version>${spider-api-version}</version>
     <artifactId>amazon-helper-spider-api</artifactId>
     <dependencies>
         <dependency>

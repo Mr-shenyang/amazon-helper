@@ -10,6 +10,8 @@ import lombok.ToString;
 public class ResponseVo<T> {
 	private static final int SUCCESS_CODE = 200;
 	private static final int FAIL_CODE = 500;
+
+	private static final int UNAUTHORIZED_CODE = 401;
 	
 	private Integer code;
 	private String failMsg;
@@ -24,10 +26,13 @@ public class ResponseVo<T> {
 	public static <T> ResponseVo<T> success(T data){
 		return new ResponseVo<>(SUCCESS_CODE,data,null);
 	}
-	
-	
+
 	public static <T> ResponseVo<T> fail(String failMsg){
 		return new ResponseVo<>(FAIL_CODE,null,failMsg);
+	}
+
+	public static <T> ResponseVo<T> unauthorized(String failMsg){
+		return new ResponseVo<>(UNAUTHORIZED_CODE,null,failMsg);
 	}
 	
 	public Integer getCode() {

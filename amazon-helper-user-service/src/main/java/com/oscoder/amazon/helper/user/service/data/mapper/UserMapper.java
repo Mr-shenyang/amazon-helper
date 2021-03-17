@@ -44,7 +44,7 @@ public interface UserMapper {
 	 * @param loginName
 	 * @return
 	 */
-	UserPO getUserPwd(@Param("loginType") Integer loginType,@Param("loginName") String loginName);
+	UserPO getUserByLogin(@Param("loginType") Integer loginType, @Param("loginName") String loginName);
 	
 	/**
 	 * 注销用户

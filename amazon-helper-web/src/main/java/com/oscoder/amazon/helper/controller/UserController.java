@@ -24,5 +24,4 @@ public class UserController {
 	ResponseVo<UserVO> getUser(@PathVariable("id") Integer id){
 		return ResponseVo.success(UserDtoVoTransform.INSTANCE.dto2DVo(userService.getUser(id)));
 	}
-	
 }
