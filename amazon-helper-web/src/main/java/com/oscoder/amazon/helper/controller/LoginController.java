@@ -1,6 +1,7 @@
 package com.oscoder.amazon.helper.controller;
 
 import com.oscoder.amazon.helper.common.dto.ResponseDTO;
+import com.oscoder.amazon.helper.jwt.JWTUtil;
 import com.oscoder.amazon.helper.user.api.dto.UserDTO;
 import com.oscoder.amazon.helper.user.api.dto.UserInitDTO;
 import com.oscoder.amazon.helper.user.api.dto.UserPwdDTO;
@@ -25,12 +26,13 @@ public class LoginController {
     private UserService userService;
 
     @PostMapping("/login")
-    public ResponseVo<String> login(@RequestBody UserPwdVo userPwdVo){
+    public ResponseVo<String> login(@RequestBody UserPwdVo userPwdVo,HttpServletResponse response){
         UserPwdDTO user = userService.getUserPwdDTO(LoginType.TEL.getType(), userPwdVo.getPhone());
         if (user == null) {
             return ResponseVo.fail("该手机号尚未注册");
         }
         if (user.getPassword().equals(userPwdVo.getPwd())) {
+            response.setHeader("token", JWTUtil.sign(user.getName(),user.getId()));
             return ResponseVo.success("");
         }
         return ResponseVo.fail("密码错误");

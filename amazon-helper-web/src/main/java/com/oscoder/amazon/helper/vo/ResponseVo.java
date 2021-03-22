@@ -27,6 +27,10 @@ public class ResponseVo<T> {
 		return new ResponseVo<>(SUCCESS_CODE,data,null);
 	}
 
+	public static <T> ResponseVo<T> failWithCode(Integer code,String failMsg){
+		return new ResponseVo<>(code,null,failMsg);
+	}
+
 	public static <T> ResponseVo<T> fail(String failMsg){
 		return new ResponseVo<>(FAIL_CODE,null,failMsg);
 	}

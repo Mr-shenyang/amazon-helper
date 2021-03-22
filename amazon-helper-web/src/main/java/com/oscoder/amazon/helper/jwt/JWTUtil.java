@@ -13,16 +13,17 @@ public class JWTUtil {
     private static final String USER_Id = "userid";
     // 过期时间5分钟
     private static final long EXPIRE_TIME = 5*60*1000;
+    // 密钥
+    private static final String SECRET = "&ds*SD(isd&Jd^67;";
 
     /**
      * 校验token是否正确
      * @param token 密钥
-     * @param secret 用户的密码
      * @return 是否正确
      */
-    public static boolean verify(String token, String username,Integer userId, String secret) {
+    public static boolean verify(String token, String username,Integer userId) {
         try {
-            Algorithm algorithm = Algorithm.HMAC256(secret);
+            Algorithm algorithm = Algorithm.HMAC256(SECRET);
             JWTVerifier verifier = JWT.require(algorithm)
                     .withClaim(USER_NAME, username)
                     .withClaim(USER_Id, userId)
@@ -63,12 +64,11 @@ public class JWTUtil {
     /**
      * 生成签名,5min后过期
      * @param username 用户名
-     * @param secret 用户的密码
      * @return 加密的token
      */
-    public static String sign(String username,Integer userId, String secret) {
+    public static String sign(String username,Integer userId) {
         Date date = new Date(System.currentTimeMillis()+EXPIRE_TIME);
-        Algorithm algorithm = Algorithm.HMAC256(secret);
+        Algorithm algorithm = Algorithm.HMAC256(SECRET);
         // 附带username信息
         return JWT.create()
                 .withClaim(USER_NAME, username)
