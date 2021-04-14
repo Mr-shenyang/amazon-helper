@@ -17,7 +17,7 @@
         </RollingFile>
     </Appenders>
     <Loggers>
-        <Root level="info">
+        <Root level="debug">
             <AppenderRef ref="infoAppender"/>
             <AppenderRef ref="warnAppender"/>
             <AppenderRef ref="errorAppender"/>

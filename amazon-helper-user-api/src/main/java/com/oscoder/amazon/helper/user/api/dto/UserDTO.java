@@ -18,4 +18,5 @@ public class UserDTO {
 	private String name;
 	private String email;
 	private String tel;
+	private String salt = "sfdsfadfdksd";
 }
