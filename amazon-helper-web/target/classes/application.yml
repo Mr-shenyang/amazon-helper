@@ -26,6 +26,10 @@ spring:
             required: true
 #mybatis配置
 mybatis:
-  typeAliasesPackage: com.oscoder.amazon.helper.user.service.data.po,com.oscoder.amazon.helper.user.service.security.encrypt
+  typeAliasesPackage: com.oscoder.amazon.helper.user.service.data.po,com.oscoder.amazon.helper.user.service.security.encrypt,com.oscoder.amazon.helper.spider.service.data.po
   mapperLocations: classpath*:mapper/*.xml
   type-handlers-package: com.oscoder.amazon.helper.user.service.security.encrypt
+
+pagehelper:
+  helperDialect: mysql
+  supportMethodsArguments: true

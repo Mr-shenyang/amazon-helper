@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
+import java.io.Serializable;
+
 /**
  * @author
  * @create 2021-02-21 11:56 AM
@@ -11,7 +13,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class ProductDTO {
+public class ProductDTO implements Serializable {
 	/**
 	 * 商品唯一标识符
 	 */

@@ -13,8 +13,8 @@ import org.mapstruct.factory.Mappers;
  * @create 2021-02-21 12:20 AM
  **/
 @Mapper
-public interface UserPoDtoTransform {
-	UserPoDtoTransform INSTANCE = Mappers.getMapper(UserPoDtoTransform.class);
+public interface UserTransform {
+	UserTransform INSTANCE = Mappers.getMapper(UserTransform.class);
 	
 	@Mappings({})
 	UserDTO po2Dto(UserPO user);

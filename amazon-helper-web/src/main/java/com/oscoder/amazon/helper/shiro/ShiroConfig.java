@@ -43,10 +43,6 @@ public class ShiroConfig {
     public JWTShiroRealm jwtShiroRealm(UserService userService){
         return new JWTShiroRealm(userService);
     }
-//    @Bean
-//    public DbShiroRealm dbShiroRealm(UserService userService){
-//        return new DbShiroRealm(userService);
-//    }
 
     /**
      * 注入 securityManager
@@ -56,7 +52,6 @@ public class ShiroConfig {
         DefaultWebSecurityManager securityManager = new DefaultWebSecurityManager();
         ModularRealmAuthenticator authenticator = new ModularRealmAuthenticator();
         //设置两个Realm，一个用于用户登录验证和访问权限获取；一个用于jwt token的认证
-//        authenticator.setRealms(Arrays.asList(jwtShiroRealm(userService), dbShiroRealm(userService)));
         authenticator.setRealms(Arrays.asList(jwtShiroRealm(userService)));
         //设置多个realm认证策略，一个成功即跳过其它的
         authenticator.setAuthenticationStrategy(new FirstSuccessfulStrategy());

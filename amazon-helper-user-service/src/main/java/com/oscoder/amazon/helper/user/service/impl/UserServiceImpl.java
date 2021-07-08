@@ -9,7 +9,7 @@ import com.oscoder.amazon.helper.user.api.enums.LoginType;
 import com.oscoder.amazon.helper.user.api.service.UserService;
 import com.oscoder.amazon.helper.user.service.data.mapper.UserMapper;
 import com.oscoder.amazon.helper.user.service.data.po.UserPO;
-import com.oscoder.amazon.helper.user.service.transform.UserPoDtoTransform;
+import com.oscoder.amazon.helper.user.service.transform.UserTransform;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
@@ -32,7 +32,7 @@ public class UserServiceImpl implements UserService {
 			if (userPo != null) {
 				return ResponseDTO.fail("该手机号已经注册");
 			}
-			userMapper.insert(UserPoDtoTransform.INSTANCE.initDto2Po(userInitDTO));
+			userMapper.insert(UserTransform.INSTANCE.initDto2Po(userInitDTO));
 			return ResponseDTO.success("注册成功");
 		}catch (Exception e){
 			log.error("register error for {}", GsonUtils.toJson(userInitDTO),e);
@@ -43,19 +43,19 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public UserDTO getUser(Integer userId) {
 		UserPO userPo = userMapper.getUserById(userId);
-		return UserPoDtoTransform.INSTANCE.po2Dto(userPo);
+		return UserTransform.INSTANCE.po2Dto(userPo);
 	}
 
 	@Override
 	public UserDTO getUserByLogin(Integer loginType, String loginName) {
 		UserPO userPo = userMapper.getUserByLogin(loginType, loginName);
-		return UserPoDtoTransform.INSTANCE.po2Dto(userPo);
+		return UserTransform.INSTANCE.po2Dto(userPo);
 	}
 
 	@Override
 	public UserPwdDTO getUserPwdDTO(Integer loginType, String loginName) {
 		UserPO userPwd = userMapper.getUserByLogin(loginType, loginName);
-		return UserPoDtoTransform.INSTANCE.po2PwdDto(userPwd);
+		return UserTransform.INSTANCE.po2PwdDto(userPwd);
 	}
 
 	@Override
